@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三八妇女节快乐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 飘落的花瓣背景 -->
+    <div class="petals-container" id="petals"></div>
+    
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 标题区域 -->
+        <header class="header">
+            <div class="title-wrapper">
+                <h1 class="main-title">
+                    <span class="char">三</span>
+                    <span class="char">八</span>
+                    <span class="char">妇</span>
+                    <span class="char">女</span>
+                    <span class="char">节</span>
+                </h1>
+                <p class="subtitle">致敬每一位了不起的她</p>
+            </div>
+        </header>
+
+        <!-- 花朵装饰 -->
+        <div class="flowers">
+            <div class="flower flower-1">🌸</div>
+            <div class="flower flower-2">🌺</div>
+            <div class="flower flower-3">🌷</div>
+            <div class="flower flower-4">🌹</div>
+            <div class="flower flower-5">💐</div>
+        </div>
+
+        <!-- 祝福卡片区域 -->
+        <section class="cards-section">
+            <div class="card" data-index="0">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="card-icon">✨</span>
+                        <h3>智慧与美丽</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>愿你既有披荆斩棘的勇气，也有被世界温柔以待的幸运</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" data-index="1">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="card-icon">💪</span>
+                        <h3>独立与自信</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>你是自己的太阳，无需借谁的光，活成自己想要的模样</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" data-index="2">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <span class="card-icon">❤️</span>
+                        <h3>温柔与力量</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>愿你的生活常温暖，日子总是温柔又闪光</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 祝福语区域 -->
+        <section class="message-section">
+            <div class="message-box">
+                <p class="typing-text" id="typingText"></p>
+                <span class="cursor">|</span>
+            </div>
+        </section>
+
+        <!-- 互动按钮 -->
+        <div class="button-section">
+            <button class="wish-btn" id="wishBtn">
+                <span class="btn-text">点击接收祝福</span>
+                <span class="btn-hearts">💝</span>
+            </button>
+        </div>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <p>祝所有女性节日快乐 🌸</p>
+        </footer>
+    </div>
+
+    <!-- 祝福弹窗 -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <div class="modal-hearts">💖</div>
+            <h2>节日快乐！</h2>
+            <p id="modalText">愿你在未来的日子里，眼里有光，心中有爱，脚下有路！</p>
+            <button class="modal-btn" id="modalBtn">谢谢</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
