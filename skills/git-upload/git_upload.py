@@ -122,8 +122,8 @@ temp/"""
     def configure_git(self):
         """配置 git 用户名和邮箱"""
         print("配置 git 用户名和邮箱...")
-        self.run_command(f"git config user.name \"{self.github_username}"")
-        self.run_command(f"git config user.email \"{self.email}"")
+        self.run_command(f'git config user.name "{self.github_username}"')
+        self.run_command(f'git config user.email "{self.email}"')
         print("✓ git 配置成功")
         return True
     
