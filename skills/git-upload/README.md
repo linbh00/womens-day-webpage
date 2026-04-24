@@ -9,10 +9,12 @@
 3. 配置 git 用户名和邮箱
 4. 添加所有文件并提交
 5. 生成 SSH 密钥（如果需要）
-6. 指导用户在 GitHub 上创建仓库
-7. 指导用户添加 SSH 密钥到 GitHub
-8. 设置远程仓库地址
-9. 推送代码到 GitHub
+6. 测试 GitHub 连接和认证
+7. 检查仓库是否已存在
+8. 指导用户在 GitHub 上创建仓库
+9. 设置远程仓库地址
+10. 推送代码到 GitHub
+11. 智能处理常见错误和重试
 
 ## 目录结构
 
@@ -34,7 +36,7 @@ skills/git-upload/
 
 ```bash
 # 在项目根目录执行
-python skills/git-upload/git_upload.py --repo_name "repository-name" --github_username "your-username" --email "your-email@example.com"
+python skills/git-upload/git_upload.py --repo_name "repository-name" --github_username "your-username" --email "your-email@example.com" [--description "repository-description"]
 ```
 
 ### 作为模块导入
@@ -45,7 +47,8 @@ from skills.git_upload.git_upload import GitUploader
 uploader = GitUploader(
     repo_name="my-project",
     github_username="your-username",
-    email="your-email@example.com"
+    email="your-email@example.com",
+    description="Project description"
 )
 uploader.upload()
 ```
@@ -57,16 +60,19 @@ uploader.upload()
 3. 配置 git 用户名和邮箱
 4. 添加所有文件并提交
 5. 生成 SSH 密钥（如果不存在）
-6. 显示 GitHub 仓库创建页面链接，等待用户创建仓库
-7. 显示 SSH 公钥内容，指导用户添加到 GitHub
-8. 设置远程仓库地址为 SSH 方式
-9. 推送代码到 GitHub
+6. 测试 GitHub 连接和认证
+7. 检查仓库是否已存在
+8. 如果仓库不存在，指导用户在 GitHub 上创建
+9. 设置远程仓库地址为 SSH 方式
+10. 推送代码到 GitHub
+11. 智能处理常见错误并提供重试机制
 
 ## 注意事项
 
-- 此工具需要用户手动在 GitHub 上创建仓库和添加 SSH 密钥
+- 此工具需要用户手动在 GitHub 上创建仓库（通过浏览器）
 - 确保网络连接正常，能够访问 GitHub
 - 确保 git 和 SSH 已正确安装
+- 首次使用需要在 GitHub 上添加 SSH 公钥
 
 ## 示例
 
@@ -74,7 +80,7 @@ uploader.upload()
 
 ```bash
 # 在新项目目录执行
-python skills/git-upload/git_upload.py --repo_name "my-new-project" --github_username "linbh00" --email "lineric@qq.com"
+python skills/git-upload/git_upload.py --repo_name "my-new-project" --github_username "linbh00" --email "lineric@qq.com" --description "My new project"
 ```
 
 ### 示例 2：上传现有项目
@@ -88,7 +94,10 @@ python skills/git-upload/git_upload.py --repo_name "existing-project" --github_u
 
 - 若 git 命令执行失败，会显示错误信息
 - 若 SSH 密钥生成失败，会提示用户手动生成
-- 若推送失败，会显示详细错误信息
+- 若 GitHub 连接失败，会尝试继续执行
+- 若仓库不存在，会指导用户创建
+- 若推送失败，会分析错误并提供解决方案
+- 支持常见错误的智能处理和重试
 
 ## 许可证
 
